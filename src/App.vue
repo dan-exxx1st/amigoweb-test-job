@@ -1,5 +1,7 @@
 <template>
-  <sign-up></sign-up>
+  <div class="container">
+    <sign-up></sign-up>
+  </div>
 </template>
 
 <script>
@@ -24,5 +26,14 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  font-family: "IBM Plex Sans", serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

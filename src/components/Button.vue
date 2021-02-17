@@ -35,13 +35,13 @@ export default {
   border-radius: 6px;
   border: none;
   outline: none;
-  height: 56px;
+  padding: 18px;
 
   cursor: pointer;
 
   &__text {
     color: #ebf4f8;
-    font-family: "IBM Plex Sans", serif;
+
     font-style: normal;
     font-weight: 500;
     font-size: 16px;

@@ -41,7 +41,7 @@ export default {
   flex-direction: column;
 
   &__label {
-    font-family: "IBM Plex Sans", serif;
+    
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -60,7 +60,7 @@ export default {
 
     padding: 16px;
 
-    font-family: "IBM Plex Sans", serif;
+    
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -79,7 +79,7 @@ export default {
 
   &__validation {
     margin-top: 8px;
-    font-family: "IBM Plex Sans", serif;
+    
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
