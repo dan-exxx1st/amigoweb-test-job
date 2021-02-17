@@ -20,6 +20,8 @@ export default {
 
 :root {
   --dc: rgb(32, 32, 32);
+  --lc: #ebf4f8;
+  --gc: #756f86;
   --bc: #0880ae;
 }
 

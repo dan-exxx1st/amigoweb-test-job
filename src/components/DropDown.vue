@@ -105,7 +105,7 @@ export default {
     }
 
     &.active {
-      border: 2px solid #0880ae;
+      border: 2px solid var(--bc);
 
       & ~ .drop-down__values {
         display: block;
@@ -118,7 +118,7 @@ export default {
     font-size: 16px;
     line-height: 21px;
 
-    color: #756f86;
+    color: var(--gc);
   }
 
   &__placeholder {
@@ -150,10 +150,10 @@ export default {
         font-size: 16px;
         line-height: 21px;
 
-        color: #756f86;
+        color: var(--gc);
 
         &:hover {
-          background: #ebf4f8;
+          background: var(--lc);
         }
       }
     }

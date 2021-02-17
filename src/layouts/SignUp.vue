@@ -11,7 +11,7 @@
       <TextField
         :value="name"
         @input="name = $event"
-        :validationMessage="controllValidate"
+        :validationMessage="nameErrors"
         placeholder="Введите ваше имя"
         label="Имя"
         class="sign-up__field"
@@ -19,7 +19,7 @@
       <TextField
         :value="email"
         @input="email = $event"
-        :validationMessage="controllValidate"
+        :validationMessage="emailErrors"
         placeholder="Введите ваш email"
         label="Email"
         class="sign-up__field"
@@ -27,7 +27,7 @@
       <TextField
         :value="phone"
         @input="phone = $event"
-        :validationMessage="controllValidate"
+        :validationMessage="phoneErrors"
         placeholder="Введите номер телефон"
         label="Номер телефона"
         class="sign-up__field"
@@ -64,7 +64,7 @@ import CheckBox from "../components/CheckBox";
 import Button from "../components/Button";
 
 const validateName = value => value.match(/[^а-яёa-z -]/i) === null;
-const validatePhoneNumber = number =>
+const validatePhone = number =>
   !!number.match(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/i);
 
 export default {
@@ -82,7 +82,8 @@ export default {
       langValue: "Русский",
       langValues: ["Русский", "Английский", "Китайский", "Испанский"],
       langDropDownOpened: false,
-      acceptChecked: false
+      acceptChecked: false,
+      isSended: false
     };
   },
   validations: {
@@ -96,32 +97,61 @@ export default {
     },
     phone: {
       required,
-      validatePhoneNumber
+      validatePhone
     },
     acceptChecked: {
       isChecked: checked => checked
     }
   },
   computed: {
-    controllValidate() {
+    nameErrors() {
+      let error = "";
       if (this.isSended) {
-        // if (!this.$v.controllValue.required) {
-        //   return "It's field required";
-        // }
-        // if (!this.$v.controllValue.minLength) {
-        //   return "Field must be have a minimum length of 4";
-        // }
+        if (!this.$v.name.required) {
+          error = "Имя не введенно";
+        }
+        if (!this.$v.name.validateName) {
+          error =
+            "Имя не должно иметь символы, отличное от букв, пробелов и дефисов";
+        }
       }
 
-      return "";
+      return error;
+    },
+    emailErrors() {
+      let error = "";
+      if (this.isSended) {
+        if (!this.$v.email.required) {
+          error = "Вы не ввели почту";
+        }
+        if (!this.$v.email.email) {
+          error = "Введенно не коректное значение";
+        }
+      }
+      return error;
+    },
+    phoneErrors() {
+      let error = "";
+      if (this.isSended) {
+        if (!this.$v.phone.required) {
+          error = "Вы не ввели номер телефона";
+        }
+        if (!this.$v.phone.validatePhone) {
+          error = "Введен не корректный номер телефона";
+        }
+      }
+      return error;
     },
     submitDisabled() {
-      return this.$v.$invalid ? true : false;
+      return this.$v.$invalid;
     }
   },
   methods: {
     submitForm() {
       this.isSended = true;
+      if (!this.$v.$invalid) {
+        console.log(true);
+      }
     }
   }
 };
@@ -158,7 +188,7 @@ export default {
 
     & > a {
       margin-left: 6px;
-      color: #0880ae;
+      color: var(--bc);
       text-decoration: none;
     }
   }
@@ -177,10 +207,10 @@ export default {
       font-size: 16px;
       line-height: 22px;
       font-weight: 500;
-      color: #756f86;
+      color: var(--gc);
 
       & > a {
-        color: #0880ae;
+        color: var(--bc);
         font-weight: 500;
         text-decoration: none;
       }

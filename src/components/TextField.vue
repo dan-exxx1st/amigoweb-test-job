@@ -41,12 +41,11 @@ export default {
   flex-direction: column;
 
   &__label {
-    
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
-    color: #756f86;
+    color: var(--gc);
     margin-bottom: 7px;
   }
 
@@ -60,7 +59,6 @@ export default {
 
     padding: 16px;
 
-    
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -72,14 +70,14 @@ export default {
     }
 
     &:focus {
-      border: 2px solid #0880ae;
+      border: 2px solid var(--bc);
       border-radius: 6px;
     }
   }
 
   &__validation {
     margin-top: 8px;
-    
+
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

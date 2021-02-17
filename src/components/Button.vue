@@ -40,7 +40,7 @@ export default {
   cursor: pointer;
 
   &__text {
-    color: #ebf4f8;
+    color: var(--lc);
 
     font-style: normal;
     font-weight: 500;
