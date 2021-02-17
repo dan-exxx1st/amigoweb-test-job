@@ -194,7 +194,7 @@ export default {
   }
 
   &__field {
-    margin-bottom: 34px;
+    margin-bottom: 20px;
   }
 
   &__accept {
